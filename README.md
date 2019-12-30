@@ -1,3 +1,9 @@
 #Spring Dependency Injection and Active Profiles
 
-Source code in this repo is to support my on line course for the Spring Framework. You can learn more about my course  [here](http://courses.springframework.guru/courses/spring-core/).
+This is moidfied from Udemy's 'Spring Core - Learn Spring Framework 4 and Spring Boot'
+It's a studying result.
+
+The original sources come from John Thompson springframeworkguru.
+See more at springframework.guru
+
+Spring Framework DI from properties
