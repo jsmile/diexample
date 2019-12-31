@@ -1,11 +1,13 @@
-package guru.springframework;
+package guru.springframework.springboot;
 
 import guru.springframework.controllers.GreedingController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan( "guru.springframework" )
 public class DependencyInjectionApplication
 {
 
