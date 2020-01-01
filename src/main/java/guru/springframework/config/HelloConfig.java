@@ -18,7 +18,7 @@ public class HelloConfig
    }
 
    @Bean
-   @Profile( { "dufault", "korean" } )
+   @Profile( { "default", "korean" } )
    public HelloWorldService helloWorldServiceKorean()
    {
       return new HelloWorldServiceKoreanImpl();
