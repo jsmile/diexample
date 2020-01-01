@@ -20,7 +20,7 @@ public class HelloConfig
    @Bean
    public HelloWorldFactory hellowWorldFactory()
    {
-      return hellowWorldFactory();
+      return new HelloWorldFactory();
    }
 
    @Bean
