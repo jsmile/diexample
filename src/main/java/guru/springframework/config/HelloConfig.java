@@ -17,21 +17,23 @@ public class HelloConfig
 {
    // Bean 의 생성을 책임질 Factory Bean 생성
    @Bean
-//   @Primary
+   @Primary
    public HelloWorldServiceFactory helloWorldServiceFactory()
    {
       return new HelloWorldServiceFactory();
    }
 
+   // .properties 파일 설정을 이용한 Injection
    @Bean
    @Profile( { "default", "korean" } ) // @Profile 에 default 를 선언하면 .properties 파일에 선언이 없을 경우 기본값
-//   @Primary
+   @Primary
    public HelloWorldService helloWorldServiceKorean( HelloWorldServiceFactory _helloWorldServiceFactory )
    {
       // factory bean 으로부터 Bean 을 생성받는다.
       return _helloWorldServiceFactory.createHelloWorldService( "ko" );
    }
 
+   // .properties 파일 설정을 이용한 Injection
    @Bean
    @Profile( "english" )
    public HelloWorldService helloWorldServiceEnglish( HelloWorldServiceFactory _helloWorldServiceFactory )
@@ -39,13 +41,14 @@ public class HelloConfig
       return _helloWorldServiceFactory.createHelloWorldService( "en" );
    }
 
+   // Bean 의 Method 를 이용한 참조 가능
    @Bean
-   @Profile( "spanish" )
    public HelloWorldService helloWorldServiceSpanish( HelloWorldServiceFactory _helloWorldServiceFactory )
    {
       return _helloWorldServiceFactory.createHelloWorldService( "eu" );
    }
 
+   // Bean 의 name 설정을 이용한 참조 가능
    @Bean( name="chinese" )
    public HelloWorldService helloWorldServiceChinese( HelloWorldServiceFactory _helloWorldServiceFactory )
    {
