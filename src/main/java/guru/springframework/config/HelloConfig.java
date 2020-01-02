@@ -1,8 +1,10 @@
 package guru.springframework.config;
 
 import guru.springframework.services.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 /**
@@ -15,6 +17,7 @@ public class HelloConfig
 {
    // Bean 의 생성을 책임질 Factory Bean 생성
    @Bean
+//   @Primary
    public HelloWorldServiceFactory helloWorldServiceFactory()
    {
       return new HelloWorldServiceFactory();
@@ -22,6 +25,7 @@ public class HelloConfig
 
    @Bean
    @Profile( { "default", "korean" } ) // @Profile 에 default 를 선언하면 .properties 파일에 선언이 없을 경우 기본값
+//   @Primary
    public HelloWorldService helloWorldServiceKorean( HelloWorldServiceFactory _helloWorldServiceFactory )
    {
       // factory bean 으로부터 Bean 을 생성받는다.
@@ -40,6 +44,12 @@ public class HelloConfig
    public HelloWorldService helloWorldServiceSpanish( HelloWorldServiceFactory _helloWorldServiceFactory )
    {
       return _helloWorldServiceFactory.createHelloWorldService( "eu" );
+   }
+
+   @Bean( name="chinese" )
+   public HelloWorldService helloWorldServiceChinese( HelloWorldServiceFactory _helloWorldServiceFactory )
+   {
+      return _helloWorldServiceFactory.createHelloWorldService( "ch" );
    }
 
 }
