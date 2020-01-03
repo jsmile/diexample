@@ -16,12 +16,11 @@ import org.springframework.context.annotation.Profile;
 public class HelloConfig
 {
    // Bean 의 생성을 책임질 Factory Bean 생성
-   @Bean
-   @Primary
-   public HelloWorldServiceFactory helloWorldServiceFactory()
-   {
-      return new HelloWorldServiceFactory();
-   }
+   //@Bean
+   //public HelloWorldServiceFactory helloWorldServiceFactory()
+   //{
+   //   return new HelloWorldServiceFactory();
+   //}
 
    // .properties 파일 설정을 이용한 Injection
    @Bean
@@ -36,11 +35,13 @@ public class HelloConfig
    // .properties 파일 설정을 이용한 Injection
    @Bean
    @Profile( "english" )
+   @Primary
    public HelloWorldService helloWorldServiceEnglish( HelloWorldServiceFactory _helloWorldServiceFactory )
    {
       return _helloWorldServiceFactory.createHelloWorldService( "en" );
    }
 
+/*
    // Bean 의 Method 를 이용한 참조 가능
    @Bean
    public HelloWorldService helloWorldServiceSpanish( HelloWorldServiceFactory _helloWorldServiceFactory )
@@ -54,5 +55,6 @@ public class HelloConfig
    {
       return _helloWorldServiceFactory.createHelloWorldService( "ch" );
    }
+*/
 
 }

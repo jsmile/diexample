@@ -6,6 +6,25 @@
 
    <context:component-scan base-package="guru.springframework" />
 
-   <bean id="greedingController" class="guru.springframework.controllers.GreedingController"></bean>
+   <!--@Controller Bean 설정-->
+   <bean id="greedingController" class="guru.springframework.controllers.GreedingController" />
 
+   <!--일반 Bean 설정-->
+   <bean id="helloWorldServiceFactory" class="guru.springframework.services.HelloWorldServiceFactory" />
+
+   <!--@Bean( name="chinese" ) 설정 : Factory 에서 생성되는 Bean-->
+   <bean id="chinese" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" >
+      <constructor-arg value="ch" />
+   </bean>
+
+   <!--Bean 의 method 를 참조하는 Bean 설정 : Factory 에서 생성되는 Bean -->
+   <bean id="helloWorldServiceSpanish" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService">
+      <constructor-arg value="eu" />
+   </bean>
+
+   <!--일반 Bean 설정 : Factory 에서 생성되는 Bean
+   <bean id="helloWorldServiceGermanImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService">
+      <constructor-arg value="ge" />
+   </bean>
+   -->
 </beans>
