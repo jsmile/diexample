@@ -7,7 +7,11 @@
    <context:component-scan base-package="guru.springframework" />
 
    <!--@Controller Bean 설정-->
-   <bean id="greedingController" class="guru.springframework.controllers.GreedingController" />
+   <bean id="greedingController" class="guru.springframework.controllers.GreedingController">
+      <property name="helloWorldService" ref="helloWorldServiceProfileImpl" />
+      <property name="helloWorldServiceSpanish" ref="helloWorldServiceSpanish" />
+      <property name="helloWorldServiceChinese" ref="chinese" />
+   </bean>
 
    <!--일반 Bean 설정-->
    <bean id="helloWorldServiceFactory" class="guru.springframework.services.HelloWorldServiceFactory" />
@@ -28,16 +32,16 @@
    </bean>
    -->
 
-   <!--@Profile 와 @Primary Bean 설정 : Factory 에서 생성되는 Bean-->
+   <!--@Profile 와 @Primary Bean 설정( @Profile 를 사용한 Bean 들은 공통 id 부여 ) : Factory 에서 생성되는 Bean-->
    <beans profile="english">
-      <bean id="helloWorldServiceEnglishImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" primary="true">
+      <bean id="helloWorldServiceProfileImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" primary="true">
          <constructor-arg value="en"/>
       </bean>
    </beans>
 
    <beans profile="korean">
-      <bean id="helloWorldServiceKoreanImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" primary="true">
-         <constructor-arg value="en"/>
+      <bean id="helloWorldServiceProfileImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" primary="true">
+         <constructor-arg value="ko"/>
       </bean>
    </beans>
 
