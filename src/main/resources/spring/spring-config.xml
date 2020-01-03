@@ -27,4 +27,18 @@
       <constructor-arg value="ge" />
    </bean>
    -->
+
+   <!--@Profile 와 @Primary Bean 설정 : Factory 에서 생성되는 Bean-->
+   <beans profile="english">
+      <bean id="helloWorldServiceEnglishImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" primary="true">
+         <constructor-arg value="en"/>
+      </bean>
+   </beans>
+
+   <beans profile="korean">
+      <bean id="helloWorldServiceKoreanImpl" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" primary="true">
+         <constructor-arg value="en"/>
+      </bean>
+   </beans>
+
 </beans>

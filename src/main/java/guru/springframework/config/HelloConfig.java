@@ -22,6 +22,7 @@ public class HelloConfig
    //   return new HelloWorldServiceFactory();
    //}
 
+/*
    // .properties 파일 설정을 이용한 Injection
    @Bean
    @Profile( { "default", "korean" } ) // @Profile 에 default 를 선언하면 .properties 파일에 선언이 없을 경우 기본값
@@ -40,6 +41,7 @@ public class HelloConfig
    {
       return _helloWorldServiceFactory.createHelloWorldService( "en" );
    }
+*/
 
 /*
    // Bean 의 Method 를 이용한 참조 가능

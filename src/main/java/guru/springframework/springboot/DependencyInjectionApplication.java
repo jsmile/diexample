@@ -20,6 +20,5 @@ public class DependencyInjectionApplication
        GreedingController controller = (GreedingController) atx.getBean( "greedingController" );
        String greeding = controller.sayHello();
        System.out.println( greeding );
-
    }
 }
