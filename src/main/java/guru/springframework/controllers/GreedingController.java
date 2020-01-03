@@ -19,23 +19,23 @@ public class GreedingController
    HelloWorldService helloWorldServiceSpanish;
    HelloWorldService helloWorldServiceChinese;
 
-   @Autowired
+//   @Autowired
    public void setHelloWorldService( HelloWorldService _helloWorldService )
    {
       this.helloWorldService = _helloWorldService;
    }
 
    // Bean 의 Method 명을 이용한 참조
-   @Autowired
-   @Qualifier( "helloWorldServiceSpanish" )
+//   @Autowired
+//   @Qualifier( "helloWorldServiceSpanish" )
    public void setHelloWorldServiceSpanish( HelloWorldService _helloWorldServiceSpanish )
    {
       this.helloWorldServiceSpanish = _helloWorldServiceSpanish;
    }
 
    // Bean 의 name 선언을 이용한 참조
-   @Autowired
-   @Qualifier( "chinese" )
+//   @Autowired
+//   @Qualifier( "chinese" )
    public void setHelloWorldServiceChinese( HelloWorldService _helloWorldServiceChinese )
    {
       this.helloWorldServiceChinese = _helloWorldServiceChinese;
