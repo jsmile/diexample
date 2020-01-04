@@ -16,14 +16,14 @@
    <!--일반 Bean 설정-->
    <bean id="helloWorldServiceFactory" class="guru.springframework.services.HelloWorldServiceFactory" />
 
-   <!--@Bean( name="chinese" ) 설정 : Factory 에서 생성되는 Bean-->
-   <bean id="chinese" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" >
-      <constructor-arg value="ch" />
-   </bean>
-
    <!--Bean 의 method 를 참조하는 Bean 설정 : Factory 에서 생성되는 Bean -->
    <bean id="helloWorldServiceSpanish" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService">
       <constructor-arg value="eu" />
+   </bean>
+
+   <!--@Bean( name="chinese" ) 설정 : Factory 에서 생성되는 Bean-->
+   <bean id="chinese" factory-bean="helloWorldServiceFactory" factory-method="createHelloWorldService" >
+      <constructor-arg value="ch" />
    </bean>
 
    <!--일반 Bean 설정 : Factory 에서 생성되는 Bean
