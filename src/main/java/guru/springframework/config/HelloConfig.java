@@ -17,7 +17,6 @@ public class HelloConfig
 {
    // Bean 의 생성을 책임질 Factory Bean 생성
    @Bean
-   @Primary
    public HelloWorldServiceFactory helloWorldServiceFactory()
    {
       return new HelloWorldServiceFactory();
